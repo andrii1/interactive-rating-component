@@ -1,4 +1,6 @@
 # Frontend Mentor - Interactive rating component
+# TLDR - see the completed challenge
+[Live preview](https://interactive-rating-component-pi-one.vercel.app/)
 
 ![Design preview for the Interactive rating component coding challenge](./design/desktop-preview.jpg)
 
