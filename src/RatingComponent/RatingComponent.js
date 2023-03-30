@@ -1,32 +1,31 @@
-import './RatingComponentStyles.css';
+import { useState } from "react";
+import "./RatingComponentStyles.css";
+import SubmitRatingComponent from "../SubmitRatingComponent/SubmitRatingComponent";
+import ThankYouComponent from "../ThankYouComponent/ThankYouComponent";
 
 function RatingComponent() {
+  const [selectedRating, setSelectedRating] = useState();
+  const [rating, setRating] = useState();
+
+  const ratingHandler = (event) => {
+    setSelectedRating(event.target.value);
+  };
+  console.log("selected", selectedRating);
+  const submitHandler = () => {
+    setRating(selectedRating);
+  };
+
   return (
-    <div className="container">
-      <img src="../../icon-star.svg" alt="icon star" />
-  {/* Rating state start*/}
-<h1>How did we do?</h1>
-  <p>
-
-  Please let us know how we did with your support request. All feedback is appreciated
-  to help us improve our offering!</p>
-
-  <button className='button-rating'>1</button>
-  <button className='button-rating'>2</button>
-  <button className='button-rating'>3</button>
-  <button className='button-rating'>4</button>
-  <button className='button-rating'>5</button>
-
-  <button>Submit</button>
-
-  {/* Rating state end*/}
-
-    {/* Thank you state start*/}
-
-
-
-    {/* Thank you state end*/}
-
+    <div className="container-main">
+      {rating ? (
+        <ThankYouComponent rating={rating} />
+      ) : (
+        <SubmitRatingComponent
+          ratingHandler={ratingHandler}
+          submitHandler={submitHandler}
+          selectedRating={selectedRating}
+        />
+      )}
     </div>
   );
 }
